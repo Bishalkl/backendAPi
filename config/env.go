@@ -19,11 +19,11 @@ type Config struct {
 // making global variable
 var Envs = initConfig()
 
-func initConfig() Config {
+func initConfig() *Config {
 
 	// directly inject the variable into env
 	godotenv.Load()
-	return Config{
+	return &Config{
 		PublicHost: getEnv("PUBLIC_HOST", "http://localhost"),
 		Port:       getEnv("PORT", "8080"),
 		DBUser:     getEnv("DB_USER", "root"),
